@@ -7,21 +7,21 @@ var store = [
     maxCustomer: 65,
     avgSale: 6.3,
     cookiesSold: [],
-    totalSales: {}
+    totalSales: 0
   }, {
     location: 'SeaTac Airport',
     minCustomer: 3,
     maxCustomer: 24,
     avgSale: 1.2,
     cookiesSold: [],
-    totalSales: {}
+    totalSales: 0
   }, {
     location: 'Seattle Center',
     minCustomer: 11,
     maxCustomer: 38,
     avgSale: 3.7,
     cookiesSold: [],
-    totalSales:{}
+    totalSales: 0
 
   }, {
     location: 'Capitol Hill',
@@ -29,14 +29,14 @@ var store = [
     maxCustomer: 38,
     avgSale: 2.3,
     cookiesSold: [],
-    totalSales: {}
+    totalSales: 0
   }, {
     location: 'Alki',
     minCustomer: 2,
     maxCustomer: 16,
     avgSale: 4.6,
     cookiesSold: [],
-    totalSales: {}
+    totalSales: 0
   }
 ];
 for(var i = 0; i < store.length; i++) {
@@ -44,22 +44,20 @@ for(var i = 0; i < store.length; i++) {
     var randomValue = Math.floor(Math.random() * (store[i].maxCustomer - store[i].minCustomer) + store[i].minCustomer);
     return Math.round(randomValue * store[i].avgSale);
   };
-  console.log(cookiesPerHour());
 
   var cookiesAllDay = function() {
     for(var x = 0; x < storeHours.length; x++) {
       store[i].cookiesSold.push(cookiesPerHour());
     }
-
-    totalSales = function () {
-      for (j=0; j< store[i].cookiesSold.length; j++)
-        totalSales = store[i].cookiesSold[j] + totalSales;
-    };
   };
+
+  var totalCookieSales = function(){
+    console.log(store[i].cookiesSold);
+    for (var y = 0; y < store[i].cookiesSold.length; y++){
+      store[i].totalSales += store[i].cookiesSold[y];
+      console.log(store[i].totalSales);
+    }
+  };
+  cookiesAllDay();
+  totalCookieSales();
 }
-
-console.log(cookiesAllDay());
-console.log(store[i].cookiesSold);
-
-console.log();
-
