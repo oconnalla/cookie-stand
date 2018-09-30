@@ -203,4 +203,52 @@ var callingAllFunctions = function() {
 };
 callingAllFunctions();
 
-// pikePlace.renderAsTable();
+
+
+
+
+
+// ___________MAKING SALMON FORM___________________________
+
+var salmonForm = document.getElementById('salmonCookiesForm');
+var bodyElement = document.getElementById('body');
+var allcookies = [];
+
+var form = function(location, minCustomer, maxCustomer, avgSale, cookiesSold, totalSales){
+  this.location = location;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.avgSale = avgSale;
+  this.cookiesSold = [];
+  this.totalSales = 0;
+  store.push(this);
+};
+
+
+// Form.prototype.returnCookieString= function (){
+//   var resultString = `Hi my name is ${this.name}, I am a level ${this.level} ${this.race} ${this.characterClass}`
+//   console.log(resultString);
+}
+
+// *****NEED TO FIX TO FIT MY CODE*****
+
+// var handleMakeCookieStore = function (exampleEvent) {
+//   exampleEvent.preventDefault();
+//   exampleEvent.stopPropagation();
+//   // console.log(exampleEvent);
+//   // console.log(exampleEvent.target);
+//   // console.log(exampleEvent.target.level);
+//   var level = exampleEvent.target.level.value;
+//   var characterName = exampleEvent.target['character-name'].value;
+//   var fantasyRace = exampleEvent.target['fantasy-race'].value;
+//   var characterClass = exampleEvent.target.class.value;
+//   // console.log(level, characterName, fantasyRace, characterClass);
+//   var newCharacter = new Character(characterName, level, fantasyRace, characterClass);
+//   allCharacters.push(newCharacter);
+  
+};
+
+bodyElement.addEventListener('click', function (event) {
+});
+
+salmonForm.addEventListener('submit', handleMakeCookieStore);

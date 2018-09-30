@@ -24,6 +24,10 @@ body {
     border-bottom: 1px solid lightgrey;
 }
 
+.topTitle {
+    font-family: 'Poiret One', cursive;
+}
+
 body, html {
     height: 100%;
 }
@@ -38,6 +42,7 @@ body, html {
     background-size: cover;
     position: relative;
     opacity: .9;
+    
 }
 /* Places text in the middle of the image */
 .hero-text {
@@ -47,6 +52,8 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    font-size: 30px;
+    font-family: 'Great Vibes', cursive;
 }
 
 section {
