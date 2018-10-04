@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <title>Salmon Cookies</title>
 
     <link rel="stylesheet" href="style.css" type="text/css">
@@ -22,30 +24,39 @@
 
     <h1 class="topTitle">Salmon Cookies</h1>
 
-
+ 
     <div class="hero-image">
             <div class="hero-text">
-              <h1>SALMON COOKIES</h1>
+              <h1>Salmon Cookies</h1>
               <p>Forget the fork!</p>
-              <button>About Us</button>
             </div>
           </div>
 
 
+    <form id= "salmonForm">  
+        <fieldset>
+            <legend>New Store</legend>
 
+            <label for = "store_Name">Store Name</label>
+            <input name = "store_Name" type = "text"/>
+
+            <label for = "min_Customer">Minumum number of hourly customers</label>
+            <input name = "min_Customer" type = "number"/>
+
+            <label for = "max_Customer">Maximum number of hourly customers</label>
+            <input name = "max_Customer" type = "number"/>
+
+            <label for = "avg_Sale">Average cookies sold per an hour</label>
+            <input name = "avg_Sale" type = "number"/>
+
+            <button type="submit">Create New Store</button>
+        </fieldset>
+    </form>    
     <section id= "stores">               
-         <table id = "storeTable">
-            <!-- <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-            </tr> -->
-      
-         </table>
-    
+        <table id = "storeTable">
+            <tfoot id= "storeFooter"> </tfoot>
+        </table>
+       
     </section>  
 
 
