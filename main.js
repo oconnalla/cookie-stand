@@ -36,7 +36,7 @@ StoreConstructor.prototype.cookiesAllDay = function () {
     }
   }
 };
-//TR== ul (horizonatally), TD == li,
+//TR== ul (horizonatally), TD == li, S______
 var createTableHours = function() {
   var row = document.createElement('tr');
   var tdEl = document.createElement('td');
