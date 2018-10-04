@@ -25,7 +25,9 @@ body {
 }
 
 .topTitle {
-    font-family: 'Poiret One', cursive;
+    font-family: 'Tangerine', cursive;
+    font-size: 50px;
+    margin: 0px, 0px, 0px 0px;
 }
 
 body, html {
@@ -52,8 +54,8 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 30px;
-    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    font-family: 'Cinzel', serif;
 }
 
 section {
