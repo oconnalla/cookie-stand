@@ -32,11 +32,13 @@ StoreConstructor.prototype.cookiesAllDay = function () {
     this.totalSales += this.cookiesSold[x];
 
     StoreConstructor.prototype.totalSales = function () {
-      
-    }
+
+    };
   }
 };
-//TR== ul (horizonatally), TD == li, S______
+
+// _________CREATING TABLE_________
+
 var createTableHours = function() {
   var row = document.createElement('tr');
   var tdEl = document.createElement('td');
@@ -76,18 +78,36 @@ StoreConstructor.prototype.renderStoreRow = function(){
   tableRow.appendChild(totalSumEl);
   storesContainer.appendChild(tableRow);
 };
-StoreConstructor.prototype.renderFooterRow = function() {
-  this.cookiesAllDay();
+
+// _______Store Footer_________
+
+var renderFooterRow = function() {
   var tableFooter = document.getElementById('tableFooter');
   var footerRow = document.createElement ('tr');
   tableFooter.appendChild(footerRow);
+  var footerTD = document.createElement ('td');
+  footerTD.textContent = 'Total';
+  footerRow.appendChild(footerTD);
 
-  for (var i = 0;  i < storeHours.length; i++) {
-    var footerTD = document.createElement ('td');
-    footerTD.textContent = 'Total';
+  for (var i = 0; i < storeHours.length; i++) {
+    var allLocationCookiesPerHour = 0;
+    for(var j = 0; j< store.length; j++){
+      allLocationCookiesPerHour += store[j].cookiesSold[i];
+    }
+    footerTD = document.createElement ('td');
+    footerTD.textContent = allLocationCookiesPerHour;
     footerRow.appendChild(footerTD);
   }
 };
+
+var renderAllStoreArray = function () {
+  for(var i=0; i <store.length; i++ ) {
+    store[i].renderStoreRow();
+  }
+
+};
+// ____Creating Store Objects_____
+
 var pikePlace = new StoreConstructor('1st and Pike', 23, 65, 6.3, [], 0);
 var seaTac =  new StoreConstructor('SeaTac Airport', 3, 24, 1.2, [], 0);
 var seattleCenter = new StoreConstructor('Seattle Center', 11, 38, 3.7, [], 0);
@@ -97,11 +117,14 @@ var Alki = new StoreConstructor('Alki', 2, 16, 4.6, [], 0);
 
 var callingAllFunctions = function() {
   createTableHours();
-  pikePlace.renderStoreRow();
-  seaTac.renderStoreRow();
-  seattleCenter.renderStoreRow();
-  capitolHill.renderStoreRow();
-  Alki.renderStoreRow();
+  renderAllStoreArray();
+  // pikePlace.renderStoreRow();
+  // seaTac.renderStoreRow();
+  // seattleCenter.renderStoreRow();
+  // capitolHill.renderStoreRow();
+  // Alki.renderStoreRow();
+  renderFooterRow();
+
 };
 callingAllFunctions();
 
@@ -117,27 +140,8 @@ var HandlerStoreform = function(event){
   var avgSale = event.target.avg_Sale.value;
   // console.log(location, minCustomer, maxCustomer, avgSale);
   var newStore = new StoreConstructor (location, parseInt(minCustomer), parseInt(maxCustomer), parseInt(avgSale));
-  store.push(newStore);
+  //store.push(newStore);
 };
 console.log(store);
-// Form.prototype.returnCookieString= function (){
-//   var resultString = `Hi my name is ${this.name}, I am a level ${this.level} ${this.race} ${this.characterClass}`
-// console.log(resultString);
-// }
-
-// var handleMakeCookieStore = function (exampleEvent) {
-//   exampleEvent.preventDefault();
-//   exampleEvent.stopPropagation();
-//   var level = exampleEvent.target.level.value;
-//   var characterName = exampleEvent.target['character-name'].value;
-//   var fantasyRace = exampleEvent.target['fantasy-race'].value;
-//   var characterClass = exampleEvent.target.class.value;
-//   // console.log(level, characterName, fantasyRace, characterClass);
-//   var newCharacter = new Character(characterName, level, fantasyRace, characterClass);
-// //   allCharacters.push(newCharacter);
-// };
-
-// bodyElement.addEventListener('click', function (event) {
-// });
 
 salmonForm.addEventListener('submit', HandlerStoreform);
