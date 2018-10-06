@@ -81,13 +81,23 @@ StoreConstructor.prototype.renderStoreRow = function(){
 
 // _______Store Footer_________
 
+// var renderFooterRow = function() {
+//   var tableFooter = document.getElementById('tableFooter');
+//   var footerRow = document.createElement ('tr');
+//   tableFooter.appendChild(footerRow);
+//   var footerTD = document.createElement ('td');
+//   footerTD.textContent = 'Total';
+//   footerRow.appendChild(footerTD);
 var renderFooterRow = function() {
-  var tableFooter = document.getElementById('tableFooter');
+  var storesContainer = document.getElementById('storeTable');
+  var tableFooter = document.createElement('tfoot');
+  storesContainer.appendChild(tableFooter);
   var footerRow = document.createElement ('tr');
   tableFooter.appendChild(footerRow);
   var footerTD = document.createElement ('td');
   footerTD.textContent = 'Total';
   footerRow.appendChild(footerTD);
+
 
   for (var i = 0; i < storeHours.length; i++) {
     var allLocationCookiesPerHour = 0;
@@ -106,6 +116,9 @@ var renderAllStoreArray = function () {
   }
 
 };
+
+
+
 // ____Creating Store Objects_____
 
 var pikePlace = new StoreConstructor('1st and Pike', 23, 65, 6.3, [], 0);
@@ -118,11 +131,6 @@ var Alki = new StoreConstructor('Alki', 2, 16, 4.6, [], 0);
 var callingAllFunctions = function() {
   createTableHours();
   renderAllStoreArray();
-  // pikePlace.renderStoreRow();
-  // seaTac.renderStoreRow();
-  // seattleCenter.renderStoreRow();
-  // capitolHill.renderStoreRow();
-  // Alki.renderStoreRow();
   renderFooterRow();
 
 };
@@ -138,9 +146,16 @@ var HandlerStoreform = function(event){
   var minCustomer = event.target.min_Customer.value;
   var maxCustomer = event.target.max_Customer.value;
   var avgSale = event.target.avg_Sale.value;
-  // console.log(location, minCustomer, maxCustomer, avgSale);
   var newStore = new StoreConstructor (location, parseInt(minCustomer), parseInt(maxCustomer), parseInt(avgSale));
-  //store.push(newStore);
+  // _______Rendering New Store info to Form__________(stores dissappear when footer is above table,total dissapears either way)
+  clearTable = function() {
+    // document.getElementById('tableFooter').innerHTML = '';
+    document.getElementById('storeTable').innerHTML = '';
+  };
+  newStore.cookiesAllDay();
+  clearTable();
+  callingAllFunctions();
+//store.push(newStore);
 };
 console.log(store);
 
